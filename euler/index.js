@@ -18,7 +18,6 @@ export default function bindEulerDemo(selector) {
 			}
 
 			const diffEqFunc = mathjs.parse(diffEqString).compile();
-			console.log(diffEqFunc);
 
 			const step = parseFloat(document.getElementById('step').value);
 			const tInitial = parseFloat(document.getElementById('tInitial').value);
