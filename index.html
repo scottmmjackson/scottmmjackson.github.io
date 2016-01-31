@@ -12,7 +12,7 @@
 <body class="colorD">
 <h1>scottmmjackson.github.io</h1>
 <h2>Proudly jQuery-Free</h2>
-<div class="row" id="appSpace">
+<div class="row hidden" id="appSpace">
 </div>
 <div class="row">
 	<div id="euler" class="col-md-4 col-xs-6 colorA">
@@ -49,8 +49,66 @@ document.getElementById('euler').addEventListener('click', function(event) {
 		var selector = document.getElementById('appSpace');
 		selector.innerHtml = null;
 		bindEulerDemo(selector);
+		removeClassFromElement(selector,'hidden');
+		forEach(document.getElementsByClassName('clear'), element => {
+		function clearFunc() {
+			var selector = document.getElementById('appSpace');
+			addClassToElement(selector,'hidden');
+			function clearInnerHtml() {
+				selector.innerHTML = '';
+				selector.removeEventListener(whichTransitionEvent(),clearInnerHtml);
+			}
+			selector.addEventListener(whichTransitionEvent(),clearInnerHtml);
+			element.removeEventListener('click',clearFunc);
+		}
+		element.addEventListener('click', clearFunc);
 	});
-})
+	});
+});
+
+function addClassToElement(element, className) {
+	if(element.className.indexOf(className) !== -1) {
+		return;
+	}
+	else {
+		element.className += " "+className;
+	}
+}
+
+function removeClassFromElement(element,className) {
+	var classNameAt = element.className.indexOf(className)
+	if(classNameAt === -1) {
+		return;
+	}
+	else {
+		var classArr = element.className.split(' ');
+		classArr.splice(classArr.indexOf(className),1);
+		element.className = classArr.join(' ');
+	}
+}
+
+function forEach(a, cb) {
+	for(var i = 0; i < a.length; ++i) {
+		cb(a[i]);
+	}
+}
+
+function whichTransitionEvent(){
+    var t;
+    var el = document.createElement('fakeelement');
+    var transitions = {
+      'transition':'transitionend',
+      'OTransition':'oTransitionEnd',
+      'MozTransition':'transitionend',
+      'WebkitTransition':'webkitTransitionEnd'
+    }
+
+    for(t in transitions){
+        if( el.style[t] !== undefined ){
+            return transitions[t];
+        }
+    }
+}
 </script>
 </body>
 </html>

@@ -2,18 +2,14 @@ import euler from './euler.js';
 import eulerHtml from './euler.html!text';
 import d3 from 'd3';
 
-function forEach(a, cb) {
-	for(let i = 0; i < a.length; ++i) {
-		cb(a[i]);
-	}
-}
-
 export default function bindEulerDemo(selector) {
 	selector.innerHTML = eulerHtml;
 	document.getElementById('eulerSubmit').addEventListener('click', () => {
-		document.getElementById('eulerOutput').innerHTML = `<p>Output</p>`;
-		let data;
-		try {
+		const output = document.getElementById('eulerOutput');
+		output.innerHTML = '';
+		const spinner = document.getElementById('eulerSpinner')
+		spinner.style.display = 'inline-block';
+		new Promise((resolve, reject) => {
 			const diffEqString = document.getElementById('diffEq').value;
 			if(!diffEqString) { 
 				throw new Error('Please input a valid equation');
@@ -28,36 +24,31 @@ export default function bindEulerDemo(selector) {
 			const yInitial = parseFloat(document.getElementById('yInitial').value);
 			const tFinal = parseFloat(document.getElementById('tFinal').value);
 
-			data = euler(diffEqFunc,step,tInitial,yInitial,tFinal);
-
-		} catch (e) {
-
-			document.getElementById('eulerOutput').innerHTML = `${e}`;
-
-		}
-
-		// d3 business logic
-		const columns = ['t', 'y(t)', "y'(t)"];
-		const outputTable = d3.select('#eulerOutput')
-		  .append('table');
-		outputTable.append('thead')
-		  .append('tr')
-			 .selectAll('th')
-			 .data(columns)
-			 .enter()
-			 .append('th')
-			 .text(c => c);
-		outputTable.append('tbody')
-		     .selectAll('tr')
-		     	.data(data).enter()
-		     	.append('tr')
-			 .selectAll('td')
-				.data(d => d).enter()
-				.append('td').text(d => d);
-	});
-	forEach(document.getElementsByClassName('clear'), element => {
-		element.addEventListener('click', () => {
-			selector.innerHTML = ''
-		})
+			resolve(euler(diffEqFunc,step,tInitial,yInitial,tFinal));
+		}).then((data) => {
+			setTimeout(() => {
+				document.getElementById('eulerSpinner').style.display = 'none';
+				// d3 business logic
+				const columns = ['t', 'y(t)', "y'(t)"];
+				const outputTable = d3.select(output)
+				  .append('table');
+				outputTable.append('thead')
+				  .append('tr')
+					 .selectAll('th')
+					 .data(columns)
+					 .enter()
+					 .append('th')
+					 .text(c => c);
+				outputTable.append('tbody')
+				     .selectAll('tr')
+				     	.data(data).enter()
+				     	.append('tr')
+					 .selectAll('td')
+						.data(d => d).enter()
+						.append('td').text(d => d.toPrecision(7));
+			},50);
+		}).catch((e) => {
+			output.innerHTML = `${e}`;
+		});
 	});
 }

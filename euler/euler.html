@@ -1,13 +1,15 @@
-	<div id="titleBar" class="colorA col-md-10 col-sm-6">Euler's Method Demo</div>
-	<div class="clear col-md-2 col-sm-6 colorB">Close Demo</div>
-	<div id="eulerBody" class="col-md-6 col-xs-12 colorA">
-		<p><a href="#">See here for the blog post discussing this demo</a></p>
-		<p>The following demo parses a first-order differential equation and approximates it with Euler's Method</p>
+	<div id="titleBar" class="button colorA col-md-10 col-xs-6">Euler's Method Demo</div>
+	<div class="button clear col-md-2 col-xs-6 colorB">Close Demo</div>
+	<div id="eulerText" class="col-md-6 col-xs-12 col-sm-6 colorA">
+	<p><a href="#">See here for the blog post discussing this demo</a></p>
+	<p>The following demo parses a first-order differential equation and approximates it with Euler's Method</p>
+	<p>
+				Equations should be in the form of a javascript expression, e.g.: Math.cos(t) for cos(<em>t</em>), Math.pow(Math.E,2*y) for e<sup>2<em>y</em></sup>. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math Library</a>. Syntax errors will be reported in the output window.
+	</p>
+	</div>
+	<div id="eulerBody" class="col-md-6 col-xs-12 col-sm-6 colorA">
 			<p>
 				<label for="diffEq">y'(y,t) = </label><input type="text" name="diffEq" id="diffEq" value="y*t" />
-			</p>
-			<p>
-				Equations should be in the form of a javascript expression, e.g.: Math.cos(t) for cos(<em>t</em>), Math.pow(Math.E,2*y) for e<sup>2<em>y</em></sup>. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math Library</a>. Syntax errors will be reported in the output window.
 			</p>
 			<p>
 				<label for="step">h = </label><input type="text" name="step" id="step" value='0.1'/>
@@ -21,23 +23,25 @@
 			<p>
 				<label for="tFinal">t<sub>n</sub> = </label><input type="text" name="tFinal" id="tFinal" value='1.0' />
 			</p>
-			<p id="spacer"><button href="#" id="eulerSubmit">Run Euler's Method</button></p>
+			<p id="spacer"><div id="eulerSubmit" class="button colorC">Run Euler's Method</div></p>
 	</div>
-	<div id="eulerOutput" class="col-md-6 col-xs-12 colorA">
+	<div class="col-md-12 col-xs-12 col-sm-12 colorA">
 		<p>Output</p>
+		<img alt="loading" src="ripple.svg" id="eulerSpinner">
+		<div id="eulerOutput"></div>
 	</div>
 	<style>
 		#eulerBody {
 			text-align: left;
 			padding-left: 10px;
 		}
-		#eulerBody label {
-			font-size: 1em;
-			display: inline-block;
-			width: 100px;
-			text-align: right;
-			padding-right: 20px;
-		}​
+		.button {
+			text-align: center;
+			padding: 10px;
+		}
+		#eulerSpinner {
+			display: none;
+		}
 		#spacer {
 			display: inline-block;
 			width: 100px;
@@ -51,5 +55,12 @@
 		td {
 			text-align: left;
 		}
+		#eulerBody label {
+			font-size: 1em;
+			display: inline-block;
+			width: 100px;
+			text-align: right;
+			padding-right: 20px;
+		}​	
 
 	</style>
