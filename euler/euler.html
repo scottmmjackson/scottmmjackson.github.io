@@ -2,9 +2,15 @@
 	<div class="button clear col-md-2 col-xs-6 colorB">Close Demo</div>
 	<div id="eulerText" class="col-md-6 col-xs-12 col-sm-6 colorA">
 	<p><a href="#">See here for the blog post discussing this demo</a></p>
-	<p>The following demo parses a first-order differential equation and approximates it with Euler's Method</p>
 	<p>
-				Equations should be in the form of a javascript expression, e.g.: Math.cos(t) for cos(<em>t</em>), Math.pow(Math.E,2*y) for e<sup>2<em>y</em></sup>. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math Library</a>. Syntax errors will be reported in the output window.
+		The following demo parses a first-order differential equation and approximates it with Euler's Method
+	</p>
+	<p>
+		If you're wondering why this app takes so long to load, it's because equation parsing is now supported using the
+		<a href="http://mathjs.org/docs/expressions/parsing.html">mathjs library</a>. Please see the documentation page for details on how equations are interpreted.
+	</p>
+	<p>
+		The table was created with d3.js. While it's possible to do it without d3, I've been trying to push myself to use d3 more often.
 	</p>
 	</div>
 	<div id="eulerBody" class="col-md-6 col-xs-12 col-sm-6 colorA">
@@ -47,13 +53,19 @@
 			width: 100px;
 			text-align: right;
 		}
+		#eulerText {
+			text-align: left;
+		}
 		table {
 			width: 100%;
 			border-color: black;
 			border-radius: 1px;
 		}
-		td {
+		td, th {
 			text-align: left;
+		}
+		th {
+			font-size: 1.25em;
 		}
 		#eulerBody label {
 			font-size: 1em;

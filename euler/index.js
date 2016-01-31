@@ -1,6 +1,7 @@
 import euler from './euler.js';
 import eulerHtml from './euler.html!text';
 import d3 from 'd3';
+import mathjs from 'mathjs';
 
 export default function bindEulerDemo(selector) {
 	selector.innerHTML = eulerHtml;
@@ -11,13 +12,13 @@ export default function bindEulerDemo(selector) {
 		spinner.style.display = 'inline-block';
 		new Promise((resolve, reject) => {
 			const diffEqString = document.getElementById('diffEq').value;
+
 			if(!diffEqString) { 
 				throw new Error('Please input a valid equation');
 			}
 
-			var diffEqFunc;
-			// lol this is unsafe, but I don't want to program an equation parser today.
-			eval('diffEqFunc = function(y,t) { return '+ diffEqString +'; }');
+			const diffEqFunc = mathjs.parse(diffEqString).compile();
+			console.log(diffEqFunc);
 
 			const step = parseFloat(document.getElementById('step').value);
 			const tInitial = parseFloat(document.getElementById('tInitial').value);

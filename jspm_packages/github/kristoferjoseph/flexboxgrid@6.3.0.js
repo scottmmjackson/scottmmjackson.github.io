@@ -1,1 +1,0 @@
-module.exports = require("github:kristoferjoseph/flexboxgrid@6.3.0/dist/flexboxgrid.css");

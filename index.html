@@ -11,7 +11,7 @@
 </head>
 <body class="colorD">
 <h1>scottmmjackson.github.io</h1>
-<h2>Proudly jQuery-Free</h2>
+<h2>Proudly jQuery-free, but totally powered by SystemJS</h2>
 <div class="row hidden" id="appSpace">
 </div>
 <div class="row">
@@ -43,26 +43,28 @@
 <script>
 document.getElementById('euler').addEventListener('click', function(event) {
 	document.getElementById('eulerLoader').style.opacity = '1.0';
-	System.import('euler/index.js').then(function (m) {
-		document.getElementById('eulerLoader').style.opacity = '0.0';
-		var bindEulerDemo = m.default;
-		var selector = document.getElementById('appSpace');
-		selector.innerHtml = null;
-		bindEulerDemo(selector);
-		removeClassFromElement(selector,'hidden');
-		forEach(document.getElementsByClassName('clear'), element => {
-		function clearFunc() {
+	System.import('euler/euler-bundle.js').then(function() {
+		System.import('euler/index.js').then(function (m) {
+			document.getElementById('eulerLoader').style.opacity = '0.0';
+			var bindEulerDemo = m.default;
 			var selector = document.getElementById('appSpace');
-			addClassToElement(selector,'hidden');
-			function clearInnerHtml() {
-				selector.innerHTML = '';
-				selector.removeEventListener(whichTransitionEvent(),clearInnerHtml);
+			selector.innerHtml = null;
+			bindEulerDemo(selector);
+			removeClassFromElement(selector,'hidden');
+			forEach(document.getElementsByClassName('clear'), element => {
+			function clearFunc() {
+				var selector = document.getElementById('appSpace');
+				addClassToElement(selector,'hidden');
+				function clearInnerHtml() {
+					selector.innerHTML = '';
+					selector.removeEventListener(whichTransitionEvent(),clearInnerHtml);
+				}
+				selector.addEventListener(whichTransitionEvent(),clearInnerHtml);
+				element.removeEventListener('click',clearFunc);
 			}
-			selector.addEventListener(whichTransitionEvent(),clearInnerHtml);
-			element.removeEventListener('click',clearFunc);
-		}
-		element.addEventListener('click', clearFunc);
-	});
+			element.addEventListener('click', clearFunc);
+		});
+		});
 	});
 });
 
