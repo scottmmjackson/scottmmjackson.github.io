@@ -761,12 +761,15 @@ System.config({
   },
 
   map: {
+    "Khan/katex": "github:Khan/katex@0.5.1",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "core-js": "npm:core-js@1.2.6",
     "d3": "github:mbostock/d3@3.5.14",
     "jquery": "npm:jquery@2.2.0",
+    "katex": "npm:katex@0.5.1",
     "kristoferjoseph/flexboxgrid": "github:kristoferjoseph/flexboxgrid@6.3.0",
+    "mathjax": "npm:mathjax@2.5.1",
     "mathjs": "npm:mathjs@2.6.0",
     "modernizr": "github:Modernizr/Modernizr@3.3.1",
     "text": "github:systemjs/plugin-text@0.0.4",
@@ -958,6 +961,13 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:katex@0.5.1": {
+      "match-at": "npm:match-at@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:mathjax@2.5.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:mathjs@2.6.0": {
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",

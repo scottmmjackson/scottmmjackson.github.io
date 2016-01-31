@@ -299,5 +299,14 @@
     "systemjs-json": "github:systemjs/plugin-json@^0.1.0"
   },
   "github:jspm/nodelibs-repl@0.1.0": {},
-  "github:jspm/nodelibs-readline@0.1.0": {}
+  "github:jspm/nodelibs-readline@0.1.0": {},
+  "npm:mathjax@2.5.1": {
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "github:Khan/katex@0.5.1": {},
+  "npm:katex@0.5.1": {
+    "match-at": "npm:match-at@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "npm:match-at@0.1.0": {}
 }

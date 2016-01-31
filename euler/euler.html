@@ -1,3 +1,4 @@
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
 	<div id="titleBar" class="button colorA col-md-10 col-xs-6">Euler's Method Demo</div>
 	<div class="button clear col-md-2 col-xs-6 colorB">Close Demo</div>
 	<div id="eulerText" class="col-md-6 col-xs-12 col-sm-6 colorA">
@@ -10,7 +11,10 @@
 		<a href="http://mathjs.org/docs/expressions/parsing.html">mathjs library</a>. Please see the documentation page for details on how equations are interpreted.
 	</p>
 	<p>
-		The table was created with d3.js. While it's possible to do it without d3, I've been trying to push myself to use d3 more often.
+		The table was created with <a href="http://d3js.org/">d3.js</a>. While it's possible to do it without d3, I've been trying to push myself to use d3 more often.
+	</p>
+	<p>
+		I used Khan Academy's <a href="https://github.com/Khan/KaTeX">KaTeX</a> to render the equations in the output.
 	</p>
 	</div>
 	<div id="eulerBody" class="col-md-6 col-xs-12 col-sm-6 colorA">
@@ -31,12 +35,17 @@
 			</p>
 			<p id="spacer"><div id="eulerSubmit" class="button colorC">Run Euler's Method</div></p>
 	</div>
-	<div class="col-md-12 col-xs-12 col-sm-12 colorA">
+	<div id="eulerOutputContainer" class="col-md-12 col-xs-12 col-sm-12 colorA">
 		<p>Output</p>
 		<img alt="loading" src="ripple.svg" id="eulerSpinner">
+		<div id="eulerFunctionDisplay" class="button"></div>
 		<div id="eulerOutput"></div>
 	</div>
 	<style>
+		#eulerOutputContainer {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
 		#eulerBody {
 			text-align: left;
 			padding-left: 10px;
