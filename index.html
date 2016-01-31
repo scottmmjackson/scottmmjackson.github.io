@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>scottmmjackson.github.io</title>
+<script src="./jspm_packages/system.js"></script>
+<script src="./modernizr-custom.js"></script>
+<script src="./config.js"></script>
+<link rel="stylesheet" href="flexboxgrid.min.css" />
+<link rel="stylesheet" href="index.css" />
+</head>
+<body class="colorD">
+<h1>scottmmjackson.github.io</h1>
+<h2>Proudly jQuery-Free</h2>
+<div class="row" id="appSpace">
+</div>
+<div class="row">
+	<div class="col-md-4 col-xs-6 colorA">
+		<div class="box">
+			<p>
+				<a href="#" id="euler">Euler's Method Demo</a>
+			</p>
+		</div>
+	</div>
+	<div class="col-md-4 col-xs-6 colorB">
+		<div class="box">
+			<p>
+				<a href="#" id="comingSoon">Coming Soon</a>
+			</p>
+		</div>
+	</div>
+	<div class="col-md-4 col-xs-6 colorC">
+		<div class="box">
+			<p>
+				<a href="#" id="clear">Close Demo</a>
+			</p>
+		</div>
+	</div>
+</div>
+<script>
+document.getElementById('euler').addEventListener('click', function(event) {
+	System.import('euler/index.js').then(function (m) {
+		var bindEulerDemo = m.default;
+		var selector = document.getElementById('appSpace');
+		selector.innerHtml = null;
+		bindEulerDemo(selector);
+	});
+})
+</script>
+</body>
+</html>

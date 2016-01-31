@@ -1,0 +1,69 @@
+/* 
+ * 3 to 2-column layout
+ * basically the simplest mobile-first type design I can come up with.
+ * -- SMMJ
+ */
+
+body {
+	text-align: center;
+	font-family: HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+
+a {
+	color: inherit;
+	font-style: inherit;
+}
+
+.app {
+	display: none;
+}
+
+.colorA {
+	color: #C3C3E5;
+	background-color: #443266;
+}
+
+.colorB {
+	color: #CCCCCC;
+	background-color: #006699;
+}
+
+.colorC {
+	color: #EECD86;
+	background-color: #3D3242;
+}
+
+.colorD {
+	color:  #129793;
+	background-color: #9BD7D5;
+}
+
+.box {
+	text-align: center;
+}
+
+.box p {
+	position: relative;
+	top: 50%;
+}
+
+@media screen and (max-width: 1023px) {
+	/* tiny screen :3 */
+	/* Flexbox SM */
+	H1 {
+		font-size: 1.5em;
+	}
+	P {
+		font-size: 1.2em;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	/* BIG OL' SCREEN :O */
+	H1 {
+		font-size: 2.5em;
+	}
+	P {
+		font-size: 1.5em;
+	}
+}
