@@ -1,11 +1,13 @@
+	<div id="titleBar" class="colorA col-md-10 col-sm-6">Euler's Method Demo</div>
+	<div class="clear col-md-2 col-sm-6 colorB">Close Demo</div>
 	<div id="eulerBody" class="col-md-6 col-xs-12 colorA">
 		<p><a href="#">See here for the blog post discussing this demo</a></p>
 		<p>The following demo parses a first-order differential equation and approximates it with Euler's Method</p>
 			<p>
-				<label for="diffEq">y'(y,t) = </label><input type="text" name="diffEq" id="diffEq" value='y*t' />
+				<label for="diffEq">y'(y,t) = </label><input type="text" name="diffEq" id="diffEq" value="y*t" />
 			</p>
 			<p>
-				Equations should be in the form of a javascript expression, e.g.: Math.cos(t), Math.pow(Math.e,2*y). See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math Library</a>. Syntax errors will be reported in the output window.
+				Equations should be in the form of a javascript expression, e.g.: Math.cos(t) for cos(<em>t</em>), Math.pow(Math.E,2*y) for e<sup>2<em>y</em></sup>. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math Library</a>. Syntax errors will be reported in the output window.
 			</p>
 			<p>
 				<label for="step">h = </label><input type="text" name="step" id="step" value='0.1'/>
@@ -14,7 +16,7 @@
 				<label for="tInitial">t<sub>0</sub> = </label><input type="text" name="tInitial" id="tInitial" value='0.0' />
 			</p>
 			<p>
-				<label for="yInitial">y<sub>0</sub> = </label><input type="text" name="yInitial" id="yInitial" value='0.0' />
+				<label for="yInitial">y<sub>0</sub> = </label><input type="text" name="yInitial" id="yInitial" value='1.0' />
 			</p>
 			<p>
 				<label for="tFinal">t<sub>n</sub> = </label><input type="text" name="tFinal" id="tFinal" value='1.0' />
