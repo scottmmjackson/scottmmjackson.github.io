@@ -1,0 +1,25 @@
+<html lang=en-US manifest='cache.manifest'>
+      <head>
+        <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="index.css" />
+      </head>
+      <body>
+        <h1>Offline Compass</h1>
+        <div id="container">
+        <svg id="compassSvg" viewBox="0, 0, 100, 100">
+          <g id="needle">
+            <polygon id="needleBody" points="50,98 60,50 50,2 40,50"/>
+            <polygon id="needleTip" points="50,2 55,25 45,25"/>
+            <text x="50" y="20" font-family="Arial" font-size=".5em" text-anchor="middle">
+              N
+            </text>
+            <circle id="needleCenter" cx="50" cy="50" r="3" />
+          </g>
+          <g id="compass">
+            <circle id="compassBody" cx="50" cy="50" r="48" />
+          </g>
+        </svg>
+      </div>
+        <script src="index.js"></script>
+      </body>
+</html>
