@@ -1,5 +1,9 @@
 CACHE MANIFEST
-# rev 7
+# rev 8
+FALLBACK:
+/ /index.html
+
+CACHE:
 /index.html
 /index.js
 /index.css
