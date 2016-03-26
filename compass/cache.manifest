@@ -1,9 +1,9 @@
 CACHE MANIFEST
 # rev 8
 FALLBACK:
-/ /index.html
+/compass/ /compass/index.html
 
 CACHE:
-/index.html
-/index.js
-/index.css
+/compass/index.html
+/compass/index.js
+/compass/index.css
