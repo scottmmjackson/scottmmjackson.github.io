@@ -14,9 +14,9 @@ html(class='no-js')
 
   body(ng-app='app' ng-controller='BoggleController')
     div
-     div(ng-repeat="r in board track by $index")
-       span(ng-repeat="c in r track by $index")
-         textarea(ng-bind="c")
+     div(ng-repeat="r in board track by $index" ng-init="y = $index")
+       span(ng-repeat="c in r track by $index" ng-init="x = $index")
+         textarea(ng-model="board[y][x]" rows='1' cols='1' maxlength='1')
     div
      button(ng-click="generate()") Generate Board
      button(ng-click="solve()") Solve Board
