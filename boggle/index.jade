@@ -1,0 +1,26 @@
+doctype html
+html(class='no-js')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Boggle Challenge - Scott Jackson
+
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='web.js')
+    script(src='vendor/angular.min.js')
+    script(src='controllers/boggleController.js')
+
+
+  body(ng-app='app' ng-controller='BoggleController')
+    div
+     div(ng-repeat="r in board track by $index")
+       span(ng-repeat="c in r track by $index")
+         textarea(ng-bind="c")
+    div
+     button(ng-click="generate()") Generate Board
+     button(ng-click="solve()") Solve Board
+    div
+     h3 Solutions
+     div(ng-repeat="sol in solutions")
+       strong(ng-bind="sol")

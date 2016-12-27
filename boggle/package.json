@@ -1,0 +1,18 @@
+{
+  "name": "boggle",
+  "version": "1.0.0",
+  "description": "Boggle Solution ---------------",
+  "main": "solver.js",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.18.0",
+    "bower": "^1.8.0",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "scott m m jackson <scottmmjackson@gmail.com>",
+  "license": "ISC"
+}
