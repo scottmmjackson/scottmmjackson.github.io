@@ -5,7 +5,7 @@ from itertools import groupby
 inp = open(sys.argv[1])
 
 # Generator that yields all words between 3-8 characters from dictionary list, lowercased
-words = (word.lower().rstrip() for word in inp.readlines() if (len(word) >= 3 and len(word) <= 8))
+words = (word.lower().rstrip() for word in inp.readlines() if (len(word) >= 4 and len(word) <= 9))
 
 def group_recursive(m_words):
   if not m_words:
