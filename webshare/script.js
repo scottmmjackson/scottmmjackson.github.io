@@ -7,5 +7,7 @@ shareTarget.addEventListener('click', function(ev) {
 		return;
 	}
 	var shareDataValue = shareData.value;
-	navigator.share(shareDataValue);
+	navigator.share({
+		text: shareDataValue
+	});
 });
