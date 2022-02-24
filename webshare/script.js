@@ -19,6 +19,9 @@ shareTarget.addEventListener('click', function(ev) {
 	if (shareTitle.value) {
 		data.title = shareTitle.value
 	}
+	if (!navigator.canShare(data)) {
+		messages.innerText = 'Cannot share that data!';
+	}
 	navigator.share(data)
 		.then(res => messages.innerText = 'Share Successful!')
 		.catch(err => messages.innerText = 'Share Unsuccessful! ' + err.toString());
@@ -38,6 +41,9 @@ shareFileTarget.addEventListener('click', function(ev) {
 	if (shareTitle.value) {
 		data.title = shareTitle.value
 	}
+	if (!navigator.canShare(data)) {
+		messages.innerText = 'Cannot share that data!';
+	}
 	navigator.share(data)
 		.then(res => messages.innerText = 'Share Successful!')
 		.catch(err => messages.innerText = 'Share Unsuccessful! ' + err.toString());
@@ -53,6 +59,9 @@ shareUrlTarget.addEventListener('click', function(ev) {
 	}
 	if (shareTitle.value) {
 		data.title = shareTitle.value
+	}
+	if (!navigator.canShare(data)) {
+		messages.innerText = 'Cannot share that data!';
 	}
 	navigator.share(data)
 		.then(res => messages.innerText = 'Share Successful!')
