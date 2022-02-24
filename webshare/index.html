@@ -2,19 +2,25 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="author" content="">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+    <meta content="" name="author">
+    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
 
 </head>
 
 <body>
-  Data to share: <input type="text" id="share-data" /><br />
-  <input type="button" id="share-target" value="Share" />
-  <div id="messages"></div>
-  <script src="script.js"></script>
+<label for="share-title">Share Title</label><input type="text" id="share-title" /><br /><br />
+
+<label for="share-data">Text to share:</label><input id="share-data" type="text"/><br />
+<input id="share-target" type="button" value="Share Text"/><br />
+<label for="share-file">File to share:</label><input id="share-file" type="file" value="Select File..."><br />
+<input id="share-file-target" type="button" value="Share File"/><br />
+<label for="share-url">URL to share:</label><input id="share-url" type="text"/><br />
+<input id="share-url-target" type="button" value="Share URL"/><br />
+<div id="messages"></div>
+<script src="script.js"></script>
 </body>
 
 </html>
